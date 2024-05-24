@@ -8,6 +8,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Project</th>
+                <th scope="col">Technology</th>
                 <th scope="col">Date</th>
                 <th scope="col">Actions</th>
             </tr>
@@ -17,6 +18,7 @@
                 <tr>
                     <td>{{ $project->id }}</td>
                     <td>{{ $project->title }}</td>
+                    <td>{{ $project->technology->name }}</td>
                     <td>{{ $project->creation_date }}</td>
                     <td class="d-flex">
 

@@ -12,10 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('projects', function (Blueprint $table) {
-            // 1. creare la colonna della FK
+
+            $table->unsignedBigInteger('technology_id')->nullable()->after('id');
 
 
-            // 2. assegnare la FK alla colonna creata
+            $table->foreign('technology_id')
+                ->references('id')
+                ->on('technologies')
+                ->onDelete('set null');
         });
     }
 
@@ -25,7 +29,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('projects', function (Blueprint $table) {
-            //
+
+            $table->dropForeign(['technology_id']);
+
+            $table->dropColumn('technology_id');
         });
     }
 };
