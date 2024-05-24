@@ -9,7 +9,7 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <div class="me-3">
-                    <p>{{ Auth::user()->name }}</p>
+                    <p class="text-white">{{ Auth::user()->name }}</p>
                 </div>
 
                 <form action="{{ route('logout') }}" method="POST">
