@@ -39,6 +39,17 @@
         enctype="multipart/form-data">
         @csrf
 
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name"
+                name="name" value="{{ old('name') }}">
+            @error('name')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
+
+        </div>
+
         <div class="mb-3">
             <label for="title" class="form-label">Titolo (*)</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
