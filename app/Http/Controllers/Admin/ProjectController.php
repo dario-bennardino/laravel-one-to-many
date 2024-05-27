@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Functions\Helper as Help;
 use App\Http\Requests\ProjectRequest;
+use App\Models\Technology;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -35,7 +36,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $technologies = Technology::all();
+
+        return view('admin.projects.create', compact('technologies'));
     }
 
     /**
@@ -67,9 +70,8 @@ class ProjectController extends Controller
         if (array_key_exists('image', $form_data)) {
             // salvo l'immagine nello store
             $image_path = Storage::put('upload', $form_data['image']);
-            dd($image_path);
         }
-        // dd($form_data);
+
 
         $form_data['slug'] = Help::generateSlug($form_data['title'], Project::class);
 
@@ -78,9 +80,6 @@ class ProjectController extends Controller
         $new->save();
 
         return redirect()->route('admin.projects.show', $new)->with('success', 'Progetto creato correttamente');
-
-        // dd($form_data);
-
     }
 
     /**

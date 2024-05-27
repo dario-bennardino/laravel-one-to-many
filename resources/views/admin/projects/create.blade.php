@@ -41,12 +41,15 @@
 
 
         <div class="mb-3">
-            <label for="name" class="form-label">Nome</label>
-            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name"
-                name="name" value="{{ old('name') }}">
-            @error('name')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <label for="technology" class="form-label">Tecnologia</label>
+            <select name="technology_id" class="form-select" aria-label="Default select example">
+                <option value="">select technology</option>
+                @foreach ($technologies as $technology)
+                    <option value="{{ $technology->name }}">
+                        {{ $technology->name }}
+                    </option>
+                @endforeach
+            </select>
 
         </div>
 
@@ -66,7 +69,6 @@
             @error('description')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
-            {{-- <input type="text" class="form-control" id="description" placeholder="descrizione" name="description"> --}}
         </div>
 
         <div class="mb-3">

@@ -19,7 +19,8 @@
                 <tr>
                     <td>{{ $project->id }}</td>
                     <td>{{ $project->title }}</td>
-                    <td>{{ $project->technology->name }}</td>
+                    <td>{{ $project->technology?->name ?? '-' }}</td>
+                    {{-- <td>{{ $project->technology->name }}</td> --}}
                     <td>{{ $project->image }}</td>
                     <td>{{ $project->creation_date }}</td>
                     <td class="d-flex">
