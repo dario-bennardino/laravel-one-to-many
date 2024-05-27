@@ -70,6 +70,7 @@ class ProjectController extends Controller
         if (array_key_exists('image', $form_data)) {
             // salvo l'immagine nello store
             $image_path = Storage::put('upload', $form_data['image']);
+            $form_data['image'] = $image_path;
         }
 
 

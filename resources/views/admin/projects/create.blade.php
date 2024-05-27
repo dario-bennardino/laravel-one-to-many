@@ -45,7 +45,7 @@
             <select name="technology_id" class="form-select" aria-label="Default select example">
                 <option value="">select technology</option>
                 @foreach ($technologies as $technology)
-                    <option value="{{ $technology->name }}">
+                    <option value="{{ $technology->id }}">
                         {{ $technology->name }}
                     </option>
                 @endforeach
