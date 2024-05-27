@@ -35,7 +35,8 @@
     </div> --}}
 
 
-    <form class="w-75" action="{{ route('admin.projects.store') }}" method="POST" class="d-flex">
+    <form class="w-75" action="{{ route('admin.projects.store') }}" method="POST" class="d-flex"
+        enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
@@ -47,6 +48,7 @@
             @enderror
 
         </div>
+
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>
             <textarea class="form-control @error('description') is-invalid @enderror" name="description">{{ old('description') }}</textarea>
@@ -55,6 +57,17 @@
             @enderror
             {{-- <input type="text" class="form-control" id="description" placeholder="descrizione" name="description"> --}}
         </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Immagine</label>
+            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
+                placeholder="titolo" name="title" value="{{ old('title') }}">
+            @error('image')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
+
+        </div>
+
         <div class="mb-3">
             <label for="creation_date" class="form-label">Data di creazione</label>
             <input type="date" class="form-control @error('creation_date') is-invalid @enderror" id="creation_date"
