@@ -61,7 +61,7 @@
         <div class="mb-3">
             <label for="image" class="form-label">Immagine</label>
             <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
-                placeholder="titolo" name="title" value="{{ old('title') }}">
+                placeholder="immagine" name="image" value="{{ old('image') }}">
             @error('image')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
