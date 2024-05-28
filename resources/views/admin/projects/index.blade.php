@@ -22,7 +22,8 @@
                     <td>{{ $project->technology?->name ?? '-' }}</td>
                     {{-- <td>{{ $project->technology->name }}</td> --}}
                     {{-- <td>{{ $project->image }}</td> --}}
-                    <td><img class="img-fluid" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
+                    <td><img class="img-fluid" src="{{ asset('storage/' . $project->image) }}"
+                            style="width: 150px; height: auto;" alt="{{ $project->title }}">
                     </td>
                     <td>{{ $project->creation_date }}</td>
                     <td class="d-flex">
